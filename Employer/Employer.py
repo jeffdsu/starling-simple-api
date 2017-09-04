@@ -50,7 +50,7 @@ class Employer():
              {'date': '2017-10-01', 'dept': 'Support', 'employee': 29, 'salary': 40000},
              {'date': '2017-06-01', 'dept': 'Engineering', 'employee': 30, 'salary': 70000}]
 
-        # self.__loaded = True
+        self.__loaded = True
 
     def __validated_employee_data_loaded(self):
         if self.__loaded is False:
