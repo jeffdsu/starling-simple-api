@@ -1,13 +1,10 @@
 import json
 from flask import Response
 
-import logging
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.DEBUG)
-
+from Logging.Logging import logger
 
 def good_response(json_data):
-
+    logger.info('simple-api-resp: {}'.format(json.dumps(json_data)))
     return Response(
             response=json.dumps(json_data, sort_keys=True,
                 indent=4, separators=(',', ': ')),
@@ -16,7 +13,7 @@ def good_response(json_data):
         )
 
 def good_data_response(json_data):
-
+    logger.info('simple-api-resp: {}'.format(json.dumps(json_data)))
     return Response(
             response=json.dumps({'data': json_data}, sort_keys=True,
                 indent=4, separators=(',', ': ')),
@@ -26,7 +23,7 @@ def good_data_response(json_data):
 
 def bad_response(json_data):
 
-    print("asdfasd")
+    logger.info('simple-api-bad-resp: {}'.format(json.dumps(json_data)))
 
     return Response(
             response=json.dumps(json_data, sort_keys=True,

@@ -1,16 +1,12 @@
-import json
-
 from flask import Flask
 
 from Employer.Employer import Employer
-from Response.Response import good_response, good_data_response, bad_response
+from Response.Response import good_response, good_data_response
 from Exception.Exception import deal_with_exception
 
-
 import logging
-logger = logging.getLogger(__name__)
+from Logging.Logging import logger
 logger.setLevel(logging.DEBUG)
-
 
 app = Flask(__name__)
 

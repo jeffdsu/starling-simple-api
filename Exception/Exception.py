@@ -3,6 +3,7 @@ from Response.Response import bad_response
 import logging
 import datetime
 
+from Logging.Logging import logger
 
 
 class StarlingBaseException(Exception):
@@ -31,7 +32,10 @@ class StarlingRunTimeException(Exception):
                 'time': self.utc_time.isoformat()}
 
 def deal_with_exception(e):
+
     if isinstance(e, StarlingBaseException):
+        logger.error('simple-api-error: {}'.format(e))
         return bad_response(e.convert_to_dict())
 
+    logger.execption('simple-api-exception: {}'.format(e))
     return bad_response(StarlingRunTimeException().convert_to_dict())
