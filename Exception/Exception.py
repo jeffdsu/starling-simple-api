@@ -37,5 +37,5 @@ def deal_with_exception(e):
         logger.error('simple-api-error: {}'.format(e))
         return bad_response(e.convert_to_dict())
 
-    logger.execption('simple-api-exception: {}'.format(e))
+    logger.exception('simple-api-exception: {}'.format(e))
     return bad_response(StarlingRunTimeException().convert_to_dict())
